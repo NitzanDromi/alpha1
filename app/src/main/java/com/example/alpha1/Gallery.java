@@ -91,6 +91,12 @@ public class Gallery extends AppCompatActivity {
         });
     }
 
+    private void uploadImage() {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setType("image/");
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(galleryIntent,"Select Picture"), RESOLT_LOAD_IMAGE);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -131,12 +137,6 @@ public class Gallery extends AppCompatActivity {
         }
     }
 
-    private void uploadImage() {
-        Intent galleryIntent = new Intent();
-        galleryIntent.setType("image/");
-        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(galleryIntent,"Select Picture"), RESOLT_LOAD_IMAGE);
-    }
 
 
     @Override
